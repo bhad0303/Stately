@@ -55,3 +55,31 @@ form div input:focus{
      flex-direction: column;
      gap: 1.5rem;
  }
+
+ .error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
+
+
+.btn-dark {background-image: linear-gradient(to right, #B993D6 0%, #8CA6DB  51%, #B993D6  100%)}
+.btn-dark {
+   margin: 10px;
+   padding: 15px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s !important;
+   background-size: 200% auto;
+   color: white;            
+   box-shadow: 0 0 20px #eee;
+   border-radius: 10px;
+   display: block;
+ }
+
+ .btn-dark:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }
