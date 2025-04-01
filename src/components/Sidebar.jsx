@@ -26,6 +26,8 @@ import {
 import DayNavigation from "./DayNavigation";
 import GridSystem from "./GridSystem";
 import actualData from "../data/text";
+// import { useContext } from "react";
+// import Context from "../context/orderContext";
 
 const drawerWidth = 180;
 
@@ -33,12 +35,22 @@ const Sidebar = (props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
-  const [order,setOrder] = React.useState(actualData);
 
 
-  const addOrder = (newOrder)=>{
-       setOrder((prevOrder)=>[...prevOrder,newOrder]);
-  }
+
+
+
+
+
+
+
+
+
+
+
+  // const addOrder = (newOrder)=>{
+  //      setOrder((prevOrder)=>[...prevOrder,newOrder]);
+  // }
 
   const handleDrawerClose = () => {
     setIsClosing(true);
@@ -141,7 +153,7 @@ const Sidebar = (props) => {
                 gap: "1rem",
               }}
             >
-              <AddOrder addOrder={addOrder} />
+              <AddOrder  />
              
 
               <Button variant="contained" color="secondary">
@@ -212,7 +224,7 @@ const Sidebar = (props) => {
             marginLeft: { sm: "12rem" },
           }}
         >
-          <GridSystem order={order}/>
+          <GridSystem />
         </Box>
       </Box>
       );

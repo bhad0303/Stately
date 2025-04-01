@@ -4,9 +4,13 @@ import SearchIcon from "@mui/icons-material/Search";
 import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";
 import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 import actualData from "../data/text.js";
+import { useContext } from "react";
+import Context from "../context/orderContext.js";
 
-function OrderList({ order }) {
+function OrderList() {
   const [selectedCard, setSelectedCard] = useState(0);
+
+  const {order,setOrder} = useContext(Context);
 
   return (
     <div

@@ -2,11 +2,20 @@ import React, { useState } from "react";
 import { Button, Modal, Box } from "@mui/material";
 import { TextField } from "@mui/material";
 import actualData from "../data/text";
+import { useContext } from "react";
+import Context from "../context/orderContext";
 
 
 
 
 function AddOrder({addOrder}) {
+
+
+   const {order,setOrder} = useContext(Context);
+
+
+
+
   const [open, setOpen] = React.useState(false);
   const [formData, setFormData] = useState({
     id: "",
@@ -29,8 +38,9 @@ function AddOrder({addOrder}) {
 
 
   const handleSubmit = (e)=>{
-    addOrder(formData)
-    handleClose();
+       
+      setOrder((prevOrder)=>[...prevOrder,formData])
+      handleClose();
   }
 
   const handleOpen = () => setOpen(true);
