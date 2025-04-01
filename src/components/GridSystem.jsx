@@ -2,8 +2,9 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import OrderList from "./OrderList";
+import SelectedOrder from "./SelectedOrder";
 
-export default function GridSystem({order}) {
+export default function GridSystem({ order }) {
   return (
     <Box>
       {/* Grid Container */}
@@ -15,9 +16,14 @@ export default function GridSystem({order}) {
               margin: { xs: "3.4rem 0", sm: "3.8rem 0" },
               background: "#F5F4FC",
               borderRadius: "1rem",
+              transition: "all 0.3s ease-in-out",
+              "&:hover": {
+                transform: "scale(1)",
+                boxShadow: "0 6px 15px rgba(0, 0, 0, 0.3)",
+              },
             }}
           >
-            <OrderList order={order}  />
+            <OrderList order={order} />
           </Box>
         </Grid>
 
@@ -33,9 +39,14 @@ export default function GridSystem({order}) {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              transition: "all 0.3s ease-in-out",
+              "&:hover": {
+                transform: "scale(1)",
+                boxShadow: "0 6px 15px rgba(0, 0, 0, 0.3)",
+              },
             }}
           >
-            <h1>No Order Selected</h1>
+            <SelectedOrder />
           </Box>
         </Grid>
 

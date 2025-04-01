@@ -7,16 +7,18 @@ import Context from "../context/orderContext";
 import actualData from "../data/text";
 
 function AppRoutes() {
- 
-  const [order,setOrder] = useState(actualData);
+  const [order, setOrder] = useState(actualData);
 
-    
-  
-
-
+  const [selectedOrder, setSelectedOrder] = useState({
+    id : 'S032432',
+    customerName : 'Michale Curlee',
+    dateOrder :"08-11-2024",
+    activityType : 'Re-Style Request',
+    state  : 'draft'
+  });
 
   return (
-    <Context.Provider value={{order,setOrder}}>
+    <Context.Provider value={{ order, setOrder,selectedOrder,setSelectedOrder }}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />

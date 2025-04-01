@@ -32,7 +32,6 @@ import actualData from "../data/text";
 const drawerWidth = 180;
 
 const Sidebar = (props) => {
-  const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
 

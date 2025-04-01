@@ -12,6 +12,12 @@ function OrderList() {
 
   const {order,setOrder} = useContext(Context);
 
+  const {  setSelectedOrder } = useContext(Context);
+
+  const handleClick = (item) => {
+    setSelectedOrder(item);
+  };
+
   return (
     <div
       style={{
@@ -129,11 +135,17 @@ function OrderList() {
         }}
       >
         {order.map((item, index) => (
+          
           <Card
             sx={{
               borderLeft: selectedCard === index ? "5px solid yellow" : "none",
-              transition: "border-left 0.2s ease-in-out",
+              transition: "all 0.2s ease",
+              "&:hover": {
+                transform: "scale(1)",
+                boxShadow: "0 6px 15px rgba(0, 0, 0, 0.3)",
+              },  
             }}
+            onClick={() => handleClick(item)}
           >
             <CardActionArea
               onClick={() => setSelectedCard(index)}
