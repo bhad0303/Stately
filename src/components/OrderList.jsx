@@ -1,21 +1,12 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import { Button, TextField, InputAdornment, Box } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";
 import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
-import data from '../data/card.json'
+import actualData from "../data/text.js";
 
-function OrderList() {
+function OrderList({ order }) {
   const [selectedCard, setSelectedCard] = useState(0);
-
-  console.log(data)
-
-  let cards = [
-    {
-      title: "hello",
-      description: "0",
-    },
-  ];
 
   return (
     <div
@@ -126,38 +117,85 @@ function OrderList() {
           gridTemplateColumns:
             "repeat(auto-fill, minmax(min(200px, 100%), 1fr))",
           gap: 2,
+          overflowY: "scroll",
+          maxHeight: "100vh",
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
         }}
       >
-        {cards.map((card, index) => (
-          <Card>
+        {order.map((item, index) => (
+          <Card
+            sx={{
+              borderLeft: selectedCard === index ? "5px solid yellow" : "none",
+              transition: "border-left 0.2s ease-in-out",
+            }}
+          >
             <CardActionArea
               onClick={() => setSelectedCard(index)}
               data-active={selectedCard === index ? "" : undefined}
               sx={{
                 height: "100%",
+                background: "white",
+
                 "&[data-active]": {
-                  backgroundColor: "action.selected",
+                  backgroundColor: "#F3F6FB",
+
                   "&:hover": {
-                    backgroundColor: "action.selectedHover",
+                    backgroundColor: "#F3F6FB",
                   },
                 },
               }}
             >
+              ,
               <CardContent sx={{ height: "100%" }}>
-                <Typography variant="h5" component="div">
-                  {card.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {card.description}
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <Typography variant="button " color="black">
+                    {item.customerName}
+                  </Typography>
+                  <Typography variant="subtitle1" component="div">
+                    {item.id}
+                  </Typography>
+                </Box>
+
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <Typography variant="subtitle1" color="black">
+                    {item.dateOrder}
+                  </Typography>
+                  <Typography
+                    variant="subtitle2"
+                    color="white"
+                    sx={{
+                      background: "black",
+                      borderRadius: "1rem",
+                      display: "inline",
+                      padding: "0.3rem 0.5rem",
+                    }}
+                  >
+                    {item.state}
+                  </Typography>
+                </Box>
+
+                <Typography variant="body2" color="red">
+                  {item.activityType}
                 </Typography>
               </CardContent>
             </CardActionArea>
           </Card>
         ))}
       </Box>
-
-
-
     </div>
   );
 }

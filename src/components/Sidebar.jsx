@@ -12,16 +12,20 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import { Button } from "@mui/material";
+import AddOrder from "./AddOrder";
 import {
   Dashboard,
   Sync,
   People,
   CheckCircle,
   Style,
+  Add,
 } from "@mui/icons-material";
 
 import DayNavigation from "./DayNavigation";
 import GridSystem from "./GridSystem";
+import actualData from "../data/text";
 
 const drawerWidth = 180;
 
@@ -29,6 +33,12 @@ const Sidebar = (props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
+  const [order,setOrder] = React.useState(actualData);
+
+
+  const addOrder = (newOrder)=>{
+       setOrder((prevOrder)=>[...prevOrder,newOrder]);
+  }
 
   const handleDrawerClose = () => {
     setIsClosing(true);
@@ -46,49 +56,43 @@ const Sidebar = (props) => {
   };
 
   const drawer = (
-    <div>
-      <List
-        sx={{
-          padding: "0.5rem",
-        }}
-      >
-        {[
-          { name: "Pending", icon: <Dashboard /> },
-          { name: "Exchange", icon: <Sync /> },
-          { name: "Completed", icon: <CheckCircle /> },
-          { name: "Members", icon: <People /> },
-          { name: "Looks", icon: <Style /> },
-        ].map((text, index) => (
-          <ListItem key={text} disablePadding sx={{ padding: "0.5rem" }}>
-            <ListItemButton
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "0.3rem",
-                paddingLeft: "1rem",
-                background: "#E4E7F1",
-                borderRadius: "1rem",
-              }}
-            >
-              <ListItemIcon sx={{ color: "black" }}>{text.icon}</ListItemIcon>
-              <ListItemText primary={text.name} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </div>
+    <List
+      sx={{
+        padding: "0.5rem",
+      }}
+    >
+      {[
+        { name: "Pending", icon: <Dashboard /> },
+        { name: "Exchange", icon: <Sync /> },
+        { name: "Completed", icon: <CheckCircle /> },
+        { name: "Members", icon: <People /> },
+        { name: "Looks", icon: <Style /> },
+      ].map((text, index) => (
+        <ListItem key={text} disablePadding sx={{ padding: "0.5rem" }}>
+          <ListItemButton
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "0.3rem",
+              paddingLeft: "1rem",
+              background: "#E4E7F1",
+              borderRadius: "1rem",
+            }}
+          >
+            <ListItemIcon sx={{ color: "black" }}>{text.icon}</ListItemIcon>
+            <ListItemText primary={text.name} />
+          </ListItemButton>
+        </ListItem>
+      ))}
+    </List>
   );
 
   return (
     <div>
       (
       <Box sx={{ gap: "0.5rem" }}>
-
-
-
         <CssBaseline />
-
 
         <AppBar
           sx={{
@@ -124,10 +128,26 @@ const Sidebar = (props) => {
                 fontWeight: 600,
                 paddingLeft: "0.4rem",
                 m: { xs: "0 auto", sm: "0" },
+                display: { xs: "none", sm: "block" },
               }}
             >
               STATELY
             </Typography>
+
+            <Box
+              sx={{
+                ml: "auto",
+                display: "flex",
+                gap: "1rem",
+              }}
+            >
+              <AddOrder addOrder={addOrder} />
+             
+
+              <Button variant="contained" color="secondary">
+                Add Product
+              </Button>
+            </Box>
 
             <Box
               sx={{
@@ -187,41 +207,13 @@ const Sidebar = (props) => {
           </Drawer>
         </Box>
 
-
-
-
-
-
-
-        <Box sx={{
-           marginLeft : { sm : '12rem'}
-        }}>
-           <GridSystem/>
+        <Box
+          sx={{
+            marginLeft: { sm: "12rem" },
+          }}
+        >
+          <GridSystem order={order}/>
         </Box>
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       </Box>
       );
     </div>

@@ -25,7 +25,7 @@ const DayNavigation = () => {
           borderRadius: "0.8rem",
           height: "51px",
           backgroundColor: "#F3F5FB",
-          color: "f5f5f5",
+          color: "#f5f5f5",
         }}
       >
         <BottomNavigationAction

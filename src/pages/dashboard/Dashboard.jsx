@@ -1,14 +1,12 @@
-import React from 'react'
-import Sidebar from '../../components/Sidebar'
+import React from "react";
+import Sidebar from "../../components/Sidebar";
 
 function Dashboard() {
   return (
-    <div>
-    
-   <Sidebar/>
+    <div> 
+      <Sidebar />
     </div>
-    
-  )
+  );
 }
 
-export default Dashboard
+export default Dashboard;
