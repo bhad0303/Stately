@@ -26,7 +26,7 @@ export default function GridSystem({ order }) {
               borderRadius: "1rem",
               transition: "all 0.3s ease-in-out",
               height : '100%',
-              overflow : 'hidden',
+              overflow: 'scroll',
               "&:hover": {
                 transform: "scale(1)",
                 boxShadow: "0 6px 15px rgba(0, 0, 0, 0.3)",
