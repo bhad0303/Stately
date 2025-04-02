@@ -28,6 +28,7 @@ import GridSystem from "./GridSystem";
 import actualData from "../data/text";
 import ThemeToggle from "./ThemeToggle";
 import { useThemeContext } from "../context/ThemeContext";
+import LogoutButton from "./LogoutButton";
 // import { useContext } from "react";
 // import Context from "../context/orderContext";
 
@@ -71,6 +72,7 @@ const Sidebar = (props) => {
        
       }}
     >
+
       <Box>
         {[
           { name: "Pending", icon: <Dashboard /> },
@@ -92,18 +94,36 @@ const Sidebar = (props) => {
                 color : mode === 'light' ? 'black' : 'white'
               }}
             >
-              <ListItemIcon sx={{color : mode === 'light' ? 'black' : 'white'}} >{text.icon}</ListItemIcon>
+              <ListItemIcon sx={{color : mode === 'light' ? 'black' : 'white'}} >{text.icon} </ListItemIcon>
               <ListItemText primary={text.name} />
             </ListItemButton>
           </ListItem>
         ))}
       </Box>
 
-      <ListItem>
-        <ListItemText >
+      <ListItem >
+        <ListItemText  >
+           <Box  sx={{
+         display : 'flex',
+         justifyContent :'center'
+      }}>
           <ThemeToggle />
+          <LogoutButton />
+
+
+           </Box>
+        
+            
         </ListItemText>
       </ListItem>
+
+
+   
+       
+      
+     
+            
+    
     </List>
   );
 

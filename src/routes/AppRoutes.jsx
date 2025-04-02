@@ -25,8 +25,10 @@ function AppRoutes() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
-          
-            <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Route>
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

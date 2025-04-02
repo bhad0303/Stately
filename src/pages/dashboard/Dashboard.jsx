@@ -7,10 +7,10 @@ function Dashboard() {
    useEffect( ()=>{
      let isValid= localStorage.getItem('isValid');
      console.log(isValid);
-      
+
      if(isValid == 'false'){
         navigate('/')
-     }
+     }  
 
    },[navigate]);
   return (

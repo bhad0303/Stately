@@ -1,15 +1,10 @@
-import React from 'react'
-import  {Navigate} from 'react-router';
+import React from "react";
+import { Navigate,Outlet } from "react-router";
 
-function ProtectedRoute({children}) {
+function ProtectedRoute() {
+  const isValid = localStorage.getItem("isValid")=== "true";
 
-
-    const isValid = localStorage.getItem('isValid');
-
-
-
-
-  return isValid ? children : <Navigate to='/'/>    
+  return isValid ? <Outlet/> : <Navigate to="/" />;
 }
 
-export default ProtectedRoute
+export default ProtectedRoute;
