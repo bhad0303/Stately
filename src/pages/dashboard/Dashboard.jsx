@@ -2,18 +2,17 @@ import React, { useEffect } from "react";
 import Sidebar from "../../components/Sidebar";
 import { useNavigate } from "react-router";
 function Dashboard() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
+ 
+   useEffect( ()=>{
+     let isValid= localStorage.getItem('isValid');
+     console.log(isValid);
+      
+     if(isValid == 'false'){
+        navigate('/')
+     }
 
-  // useEffect(() => {
-  //   const isValidate = localStorage.getItem("isValidate");
-  //   console.log("isValidate value:", isValidate);
-
-  //   if (isValidate == "true") {  // Fix: Explicitly check for "true"
-  //     console.log("Redirecting to login...");
-  //     navigate("/login");
-  //   }
-  // }, [navigate]);
-
+   },[navigate]);
   return (
     <div>
       <Sidebar />

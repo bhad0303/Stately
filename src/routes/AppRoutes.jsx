@@ -5,24 +5,28 @@ import NotFound from "../pages/notfound/NotFound";
 import Dashboard from "../pages/dashboard/Dashboard";
 import Context from "../context/orderContext";
 import actualData from "../data/text";
+import ProtectedRoute from "./ProtectedRoute";
 
 function AppRoutes() {
   const [order, setOrder] = useState(actualData);
 
   const [selectedOrder, setSelectedOrder] = useState({
-    id : 'S032432',
-    customerName : 'Michale Curlee',
-    dateOrder :"08-11-2024",
-    activityType : 'Re-Style Request',
-    state  : 'draft'
+    id: "S032432",
+    customerName: "Michale Curlee",
+    dateOrder: "08-11-2024",
+    activityType: "Re-Style Request",
+    state: "draft",
   });
 
   return (
-    <Context.Provider value={{ order, setOrder,selectedOrder,setSelectedOrder }}>
+    <Context.Provider
+      value={{ order, setOrder, selectedOrder, setSelectedOrder }}
+    >
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          
+            <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

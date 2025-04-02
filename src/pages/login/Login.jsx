@@ -17,8 +17,7 @@ import { useThemeContext } from "../../context/ThemeContext";
 function Login() {
 
       
-   localStorage.setItem('isValidate','false');
-   console.log(localStorage.getItem('isValidate'));
+
     const {register,handleSubmit,formState:{errors}} = useForm();
     const navigate = useNavigate();
     
@@ -27,7 +26,9 @@ function Login() {
 
     const onSubmit = (data) => {
       localStorage.setItem('formData' ,JSON.stringify(data));
-      localStorage.setItem("isValidate",'true');
+
+      localStorage.setItem('isValid','true');
+      console.log(localStorage.getItem('isValid'))
       navigate('/dashboard');
       console.log("Form Submitted:", data);
     };
