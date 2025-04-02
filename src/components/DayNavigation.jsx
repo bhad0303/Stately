@@ -2,9 +2,11 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import { useThemeContext } from "../context/ThemeContext";
 
 const DayNavigation = () => {
   const [value, setValue] = React.useState(0);
+  const {mode} = useThemeContext();
 
   return (
     <Box
@@ -24,8 +26,8 @@ const DayNavigation = () => {
         sx={{
           borderRadius: "0.8rem",
           height: "51px",
-          backgroundColor: "#F3F5FB",
-          color: "#f5f5f5",
+          backgroundColor: mode === 'light' ? "#F3F5FB" : '#282828',
+          color: mode === 'light'? '#f5f5f5' : 'white',
         }}
       >
         <BottomNavigationAction
@@ -34,7 +36,7 @@ const DayNavigation = () => {
             borderRight: "1px solid #ccc",
             borderRadius: "0.8rem",
             backgroundColor: value === 0 ? "#161722" : "F3F5FB",
-            color: value === 0 ? "white !important" : "black",
+            color: value === 0 ? "white !important" : "red",  
           }}
         />
         <BottomNavigationAction
@@ -43,7 +45,7 @@ const DayNavigation = () => {
             borderRight: "1px solid #ccc",
             borderRadius: "0.8rem",
             backgroundColor: value === 1 ? "#161722" : "F3F5FB",
-            color: value === 1 ? "white !important" : "black",
+            color: value === 1 ? "white !important" : "red",
           }}
         />
         <BottomNavigationAction
@@ -51,7 +53,7 @@ const DayNavigation = () => {
           sx={{
             borderRadius: "0.8rem",
             backgroundColor: value === 2 ? "#161722" : "F3F5FB",
-            color: value === 2 ? "white !important" : "black",
+            color: value === 2 ? "white !important" : "red",
           }}
         />
       </BottomNavigation>

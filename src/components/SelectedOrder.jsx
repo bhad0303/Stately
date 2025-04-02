@@ -5,10 +5,11 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
+import { useThemeContext } from "../context/ThemeContext";
 
 const SelectedOrder = () => {
   const { selectedOrder } = useContext(orderContext);
-  console.log(selectedOrder);
+  const { mode } = useThemeContext(); 
 
   return (
     <Card
@@ -17,7 +18,7 @@ const SelectedOrder = () => {
         maxWidth: "450px",
         minHeight: "250px",
         borderRadius: "1rem",
-        background : 'white',
+        background: mode === 'light' ? 'white' : '#3f3f3f',
         boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
         transition: "all 0.3s ease-in-out",
         "&:hover": {
@@ -67,7 +68,7 @@ const SelectedOrder = () => {
               variant="h6"
               sx={{
                 fontWeight: "bold",
-                color: "black",
+                color: mode === 'light' ? 'black' : 'white',
                 textAlign: { xs: "left", sm: "right" },
                 fontSize: { xs: "1rem", sm: "1.2rem" },
               }}

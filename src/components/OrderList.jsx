@@ -6,6 +6,7 @@ import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 import actualData from "../data/text.js";
 import { useContext } from "react";
 import Context from "../context/orderContext.js";
+import { useThemeContext } from "../context/ThemeContext.jsx";
 
 function OrderList() {
   const [selectedCard, setSelectedCard] = useState(0);
@@ -13,6 +14,10 @@ function OrderList() {
   const {order,setOrder} = useContext(Context);
 
   const {  setSelectedOrder } = useContext(Context);
+
+  const {mode}   = useThemeContext();
+
+
 
   const handleClick = (item) => {
     setSelectedOrder(item);
@@ -143,7 +148,7 @@ function OrderList() {
               "&:hover": {
                 transform: "scale(1)",
                 boxShadow: "0 6px 15px rgba(0, 0, 0, 0.3)",
-              },  
+              },    
             }}
             onClick={() => handleClick(item)}
           >
@@ -152,19 +157,20 @@ function OrderList() {
               data-active={selectedCard === index ? "" : undefined}
               sx={{
                 height: "100%",
-                background: "white",
+                background: mode === 'light' ? 'white' : '#3f3f3f',
+                color : mode === 'light' ? 'black' : 'white',
 
                 "&[data-active]": {
-                  backgroundColor: "#F3F6FB",
+                  backgroundColor: mode === 'light' ?  "#F3F6FB" : '#717171',
 
                   "&:hover": {
-                    backgroundColor: "#F3F6FB",
+                    backgroundColor: mode === 'light' ? "#F3F6FB" : '#717171  ',
                   },
                 },
               }}
             >
               ,
-              <CardContent sx={{ height: "100%" }}>
+              <CardContent sx={{ height: "100%" ,   color : mode === 'light' ? 'black' : 'white'}}>
                 <Box
                   sx={{
                     display: "flex",
@@ -172,7 +178,7 @@ function OrderList() {
                     alignItems: "center",
                   }}
                 >
-                  <Typography variant="button " color="black">
+                  <Typography variant="button " >
                     {item.customerName}
                   </Typography>
                   <Typography variant="subtitle1" component="div">
@@ -187,7 +193,7 @@ function OrderList() {
                     alignItems: "center",
                   }}
                 >
-                  <Typography variant="subtitle1" color="black">
+                  <Typography variant="subtitle1" >
                     {item.dateOrder}
                   </Typography>
                   <Typography

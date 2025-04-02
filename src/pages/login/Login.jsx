@@ -16,14 +16,18 @@ import { useThemeContext } from "../../context/ThemeContext";
 
 function Login() {
 
-
+      
+   localStorage.setItem('isValidate','false');
+   console.log(localStorage.getItem('isValidate'));
     const {register,handleSubmit,formState:{errors}} = useForm();
     const navigate = useNavigate();
+    
     const {mode} = useThemeContext();
      
 
     const onSubmit = (data) => {
       localStorage.setItem('formData' ,JSON.stringify(data));
+      localStorage.setItem("isValidate",'true');
       navigate('/dashboard');
       console.log("Form Submitted:", data);
     };

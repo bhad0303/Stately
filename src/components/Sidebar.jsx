@@ -26,6 +26,8 @@ import {
 import DayNavigation from "./DayNavigation";
 import GridSystem from "./GridSystem";
 import actualData from "../data/text";
+import ThemeToggle from "./ThemeToggle";
+import { useThemeContext } from "../context/ThemeContext";
 // import { useContext } from "react";
 // import Context from "../context/orderContext";
 
@@ -34,18 +36,9 @@ const drawerWidth = 180;
 const Sidebar = (props) => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
+  const {mode} = useThemeContext();
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
   // const addOrder = (newOrder)=>{
   //      setOrder((prevOrder)=>[...prevOrder,newOrder]);
@@ -70,32 +63,47 @@ const Sidebar = (props) => {
     <List
       sx={{
         padding: "0.5rem",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        height:'92%',
+        background : mode === 'light' ? 'white' : 'black',
+       
       }}
     >
-      {[
-        { name: "Pending", icon: <Dashboard /> },
-        { name: "Exchange", icon: <Sync /> },
-        { name: "Completed", icon: <CheckCircle /> },
-        { name: "Members", icon: <People /> },
-        { name: "Looks", icon: <Style /> },
-      ].map((text, index) => (
-        <ListItem key={text} disablePadding sx={{ padding: "0.5rem" }}>
-          <ListItemButton
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "0.3rem",
-              paddingLeft: "1rem",
-              background: "#E4E7F1",
-              borderRadius: "1rem",
-            }}
-          >
-            <ListItemIcon sx={{ color: "black" }}>{text.icon}</ListItemIcon>
-            <ListItemText primary={text.name} />
-          </ListItemButton>
-        </ListItem>
-      ))}
+      <Box>
+        {[
+          { name: "Pending", icon: <Dashboard /> },
+          { name: "Exchange", icon: <Sync /> },
+          { name: "Completed", icon: <CheckCircle /> },
+          { name: "Members", icon: <People /> },
+          { name: "Looks", icon: <Style /> },
+        ].map((text, index) => (
+          <ListItem key={text}  sx={{ padding: "0.5rem"  }}>
+            <ListItemButton
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "0.3rem",
+                paddingLeft: "1rem",
+                borderRadius: "1rem",
+                background: mode === 'light' ? '#E4E7F1' : '#282828',
+                color : mode === 'light' ? 'black' : 'white'
+              }}
+            >
+              <ListItemIcon sx={{color : mode === 'light' ? 'black' : 'white'}} >{text.icon}</ListItemIcon>
+              <ListItemText primary={text.name} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </Box>
+
+      <ListItem>
+        <ListItemText >
+          <ThemeToggle />
+        </ListItemText>
+      </ListItem>
     </List>
   );
 
@@ -109,7 +117,7 @@ const Sidebar = (props) => {
           sx={{
             width: { sm: "100%" },
             ml: { sm: `${drawerWidth}px` },
-            background: "#F4F5FC",
+            background: mode === "light" ? "#F8FBFF" : "#121212",
             boxShadow: "none",
             padding: "0.5rem",
           }}
@@ -152,8 +160,7 @@ const Sidebar = (props) => {
                 gap: "1rem",
               }}
             >
-              <AddOrder  />
-             
+              <AddOrder />
 
               <Button variant="contained" color="secondary">
                 Add Product
@@ -187,6 +194,7 @@ const Sidebar = (props) => {
               "& .MuiDrawer-paper": {
                 boxSizing: "border-box",
                 width: drawerWidth,
+
               },
             }}
             slotProps={{
