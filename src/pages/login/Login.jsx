@@ -13,8 +13,6 @@ import { useThemeContext } from "../../context/ThemeContext";
 import { toast, ToastContainer } from "react-toastify";
 import { useEffect } from "react";
 
-//onBlur vaidation
-
 
 
 async function getUserData() {
@@ -72,7 +70,7 @@ useEffect(()=>{
 
     localStorage.setItem("isValid", "true");
 
-    // navigate("/dashboard");
+  
   };
 
   // const [formData,setFormData] = useState({
@@ -118,7 +116,7 @@ useEffect(()=>{
 
        <ToastContainer />
       {/* Theme Toggle Button */}
-      <Box sx={{ position: "absolute", top: 10, right: 10 }}>
+      <Box sx={{ position: "absolute", top: 10, right: 10 }}>``
         <ThemeToggle />
       </Box>
 
