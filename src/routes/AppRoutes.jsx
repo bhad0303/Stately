@@ -6,6 +6,7 @@ import Dashboard from "../pages/dashboard/Dashboard";
 import Context from "../context/orderContext";
 import actualData from "../data/text";
 import ProtectedRoute from "./ProtectedRoute";
+import SingUp from "../pages/signup/SignUp";
 
 function AppRoutes() {
   const [order, setOrder] = useState(actualData);
@@ -25,6 +26,7 @@ function AppRoutes() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<SingUp />} />
           <Route element={<ProtectedRoute />}>
             <Route path="/dashboard" element={<Dashboard />} />
           </Route>

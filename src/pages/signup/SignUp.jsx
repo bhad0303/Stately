@@ -4,38 +4,17 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import LoginIcon from "@mui/icons-material/Login";
-import "./Login.css";
 import { Link } from "react-router";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import ThemeToggle from "../../components/ThemeToggle";
 import { useThemeContext } from "../../context/ThemeContext";
-import { toast, ToastContainer } from "react-toastify";
-import { useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 //onBlur vaidation
 
-
-
-async function getUserData() {
-  const response = await fetch("http://localhost:5000/users");
-  const data = await response.json();
-
-  return data;
-}
-
-function Login() {
-
-      
-useEffect(()=>{
-   localStorage.setItem('isValid','false');
-},[]);
-
-
-
-
-
-
+function SingUp() {
   const {
     register,
     handleSubmit,
@@ -46,33 +25,21 @@ useEffect(()=>{
   const { mode } = useThemeContext();
 
   const onSubmit = async (data) => {
+    const response = await fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    const userData = await response.json();
 
+    setTimeout(() => {
+      navigate("/");
+    }, 1500);
 
-    const usersData = await getUserData();
-
-    const user = usersData.find(
-      (u) => u.email === data.email && u.password === data.password
-    );
-
-    if (user) {
-      setTimeout(() => {
-        navigate("/dashboard");
-      }, 1500);
-
-      toast.success("Logged In  Successfully", {
-        position: "bottom-left",
-        autoClose: 1500,
-      });
-    } else {
-      toast.error("Invalid email or password", {
-        position: "bottom-left",
-        autoClose: 1500,
-      });
-    }
-
-    localStorage.setItem("isValid", "true");
-
-    // navigate("/dashboard");
+    toast.success("Account Created Successfully", {
+      position: "bottom-left",
+      autoClose: 1500,
+    });
   };
 
   // const [formData,setFormData] = useState({
@@ -81,7 +48,7 @@ useEffect(()=>{
   // })
 
   // let onSubmitForm = (event)=>{
-  //    event.preventDefault();_
+  //    event.preventDefault();
   //    let resultData = {
   //      ...formData
   //    }
@@ -114,9 +81,9 @@ useEffect(()=>{
         boxSizing: "border-box",
         position: "relative",
       }}
-    >   
+    >
+      <ToastContainer />
 
-       <ToastContainer />
       {/* Theme Toggle Button */}
       <Box sx={{ position: "absolute", top: 10, right: 10 }}>
         <ThemeToggle />
@@ -150,10 +117,26 @@ useEffect(()=>{
           <Typography
             sx={{ fontSize: "2rem", fontWeight: "bold", margin: "1rem 0" }}
           >
-            Log in
+            Sing Up
           </Typography>
 
           <form className="Login" onSubmit={handleSubmit(onSubmit)}>
+            <div>
+              <label htmlFor="fullname">Full Name</label>
+              <input
+                id="fullname"
+                type="text"
+                name="fullname"
+                placeholder="Darshan Bhavsar"
+                {...register("fullname", { required: "fullname is required" })}
+                // value ={formData.email}
+                // onChange={handleChange}
+              />
+              {errors.fullname && (
+                <p className="error-message">{errors.fullname.message}</p>
+              )}
+            </div>
+
             <div>
               <label htmlFor="email">Email</label>
               <input
@@ -203,7 +186,7 @@ useEffect(()=>{
               className={mode === "light" ? "btn-grad" : "btn-dark"}
               type="submit"
             >
-              Sign in
+              Sign up
             </Button>
 
             <div
@@ -212,15 +195,15 @@ useEffect(()=>{
                 textAlign: "center",
               }}
             >
-              <span> Don't have any account ? </span>
+              <span> Already have a account ? </span>
 
               <Link
-                to="/signup"
+                to="/"
                 style={{
                   color: "#D1A201",
                 }}
               >
-                Sing Up
+                Login
               </Link>
             </div>
           </form>
@@ -230,4 +213,4 @@ useEffect(()=>{
   );
 }
 
-export default Login;
+export default SingUp;
