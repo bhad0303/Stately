@@ -14,6 +14,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import AddOrder from "./AddOrder";
+import AddProduct from "./AddProduct";
 import {
   Dashboard,
   Sync,
@@ -37,9 +38,7 @@ const drawerWidth = 180;
 const Sidebar = (props) => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
-  const {mode} = useThemeContext();
-
- 
+  const { mode } = useThemeContext();
 
   // const addOrder = (newOrder)=>{
   //      setOrder((prevOrder)=>[...prevOrder,newOrder]);
@@ -67,12 +66,10 @@ const Sidebar = (props) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        height:'92%',
-        background : mode === 'light' ? 'white' : 'black',
-       
+        height: "92%",
+        background: mode === "light" ? "white" : "black",
       }}
     >
-
       <Box>
         {[
           { name: "Pending", icon: <Dashboard /> },
@@ -81,7 +78,7 @@ const Sidebar = (props) => {
           { name: "Members", icon: <People /> },
           { name: "Looks", icon: <Style /> },
         ].map((text, index) => (
-          <ListItem key={text}  sx={{ padding: "0.5rem"  }}>
+          <ListItem key={text} sx={{ padding: "0.5rem" }}>
             <ListItemButton
               style={{
                 display: "flex",
@@ -90,40 +87,34 @@ const Sidebar = (props) => {
                 gap: "0.3rem",
                 paddingLeft: "1rem",
                 borderRadius: "1rem",
-                background: mode === 'light' ? '#E4E7F1' : '#282828',
-                color : mode === 'light' ? 'black' : 'white'
+                background: mode === "light" ? "#E4E7F1" : "#282828",
+                color: mode === "light" ? "black" : "white",
               }}
             >
-              <ListItemIcon sx={{color : mode === 'light' ? 'black' : 'white'}} >{text.icon} </ListItemIcon>
+              <ListItemIcon
+                sx={{ color: mode === "light" ? "black" : "white" }}
+              >
+                {text.icon}{" "}
+              </ListItemIcon>
               <ListItemText primary={text.name} />
             </ListItemButton>
           </ListItem>
         ))}
       </Box>
 
-      <ListItem >
-        <ListItemText  >
-           <Box  sx={{
-         display : 'flex',
-         justifyContent :'center'
-      }}>
-          <ThemeToggle />
-          <LogoutButton />
-
-
-           </Box>
-        
-            
+      <ListItem>
+        <ListItemText>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <ThemeToggle />
+            <LogoutButton />
+          </Box>
         </ListItemText>
       </ListItem>
-
-
-   
-       
-      
-     
-            
-    
     </List>
   );
 
@@ -182,9 +173,7 @@ const Sidebar = (props) => {
             >
               <AddOrder />
 
-              <Button variant="contained" color="secondary">
-                Add Product
-              </Button>
+              <AddProduct />
             </Box>
 
             <Box
@@ -214,7 +203,6 @@ const Sidebar = (props) => {
               "& .MuiDrawer-paper": {
                 boxSizing: "border-box",
                 width: drawerWidth,
-
               },
             }}
             slotProps={{

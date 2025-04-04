@@ -13,8 +13,6 @@ import { useThemeContext } from "../../context/ThemeContext";
 import { toast, ToastContainer } from "react-toastify";
 import { useEffect } from "react";
 
-
-
 async function getUserData() {
   const response = await fetch("http://localhost:5000/users");
   const data = await response.json();
@@ -23,16 +21,9 @@ async function getUserData() {
 }
 
 function Login() {
-
-      
-useEffect(()=>{
-   localStorage.setItem('isValid','false');
-},[]);
-
-
-
-
-
+  useEffect(() => {
+    localStorage.setItem("isValid", "false");
+  }, []);
 
   const {
     register,
@@ -44,8 +35,6 @@ useEffect(()=>{
   const { mode } = useThemeContext();
 
   const onSubmit = async (data) => {
-
-
     const usersData = await getUserData();
 
     const user = usersData.find(
@@ -69,8 +58,6 @@ useEffect(()=>{
     }
 
     localStorage.setItem("isValid", "true");
-
-  
   };
 
   // const [formData,setFormData] = useState({
@@ -112,11 +99,10 @@ useEffect(()=>{
         boxSizing: "border-box",
         position: "relative",
       }}
-    >   
-
-       <ToastContainer />
+    >
+      <ToastContainer />
       {/* Theme Toggle Button */}
-      <Box sx={{ position: "absolute", top: 10, right: 10 }}>``
+      <Box sx={{ position: "absolute", top: 10, right: 10 }}>
         <ThemeToggle />
       </Box>
 

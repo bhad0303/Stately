@@ -140,7 +140,7 @@ function OrderList() {
           },
         }}
       >
-        {order.map((item, index) => (
+        { order && order.map((item, index) => (
           
           <Card
             sx={{

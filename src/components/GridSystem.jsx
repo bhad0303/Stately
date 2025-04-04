@@ -53,6 +53,7 @@ export default function GridSystem({ order }) {
               justifyContent: "center",
               alignItems: "center",
               transition: "all 0.3s ease-in-out",
+              
               "&:hover": {
                 transform: "scale(1)",
                 boxShadow: "0 6px 15px rgba(0, 0, 0, 0.3)",

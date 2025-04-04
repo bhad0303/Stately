@@ -1,0 +1,145 @@
+{
+    "orders": [
+      {
+        "id": "SO92786",
+        "customerName": "Michael Curlee",
+        "dateOrder": "2024-11-08",
+        "activityType": "Re-Style Request",
+        "state": "draft",
+        "tags": [" Subscription", " Luxe Plan", "swell_vip_base tier", "Subscription First Order", "Personalized", "BIFREQUENCY"],
+        "products": [
+          {
+            "productName": "Men's Jacket",
+            "size": "L",
+            "price": 59.99,
+            "photo": "https://picsum.photos/seed/Men's%20Jacket0/150/120"
+          },
+          {
+            "productName": "Leather Boots",
+            "size": "42",
+            "price": 89.99,
+            "photo": "https://picsum.photos/seed/Leather%20Boots1/150x`/120"
+          }
+        ]
+      },
+      {
+        "id": "SO92734",
+        "customerName": "AJ 0007031190",
+        "dateOrder": "2024-10-29",
+        "activityType": "Re-Style Request",
+        "state": "draft",
+        "tags": ["Subscription", " Luxe Plan", "Subscription Recurring Order"],
+        "products": [
+          {
+            "productName": "Designer Sunglasses",
+            "size": "One Size",
+            "price": 120.5,
+            "photo": "https://picsum.photos/seed/Designer%20Sunglasses0/150/120"
+          }
+        ]
+      },
+      {
+        "id": "SO92841",
+        "customerName": "Long Dang",
+        "dateOrder": "2024-11-15",
+        "activityType": "Re-Style Request",
+        "state": "draft",
+        "tags": [],
+        "products": [
+          {
+            "productName": "Sports Sneakers",
+            "size": "44",
+            "price": 75,
+            "photo": "https://picsum.photos/seed/Sports%20Sneakers0/150/120"
+          }
+        ]
+      },
+      {
+        "id": "SO92867",
+        "customerName": "Abc Test",
+        "dateOrder": "2024-11-21",
+        "activityType": "Re-Style Request",
+        "state": "draft",
+        "tags": [],
+        "products": [
+          {
+            "productName": "Luxury Watch",
+            "size": "One Size",
+            "price": 250,
+            "photo": "https://picsum.photos/seed/Luxury%20Watch0/150/120"
+          }
+        ]
+      },
+      {
+        "id": "SO92875",
+        "customerName": "Richard Burton",
+        "dateOrder": "2024-11-25",
+        "activityType": "Initial Email Sent",
+        "state": "draft",
+        "tags": [" Subscription", "swell_vip_base tier", "Subscription First Order", "Presidential Plan", "Personalized", "BIFREQUENCY"],
+        "products": [
+          {
+            "productName": "Handmade Leather Wallet",
+            "size": "Standard",
+            "price": 45,
+            "photo": "https://picsum.photos/seed/Handmade%20Leather%20Wallet0/150/120"
+          },
+          {
+            "productName": "Cotton T-Shirt",
+            "size": "M",
+            "price": 25.99,
+            "photo": "https://picsum.photos/seed/Cotton%20T-Shirt1/150/120"
+          }
+        ]
+      },
+      {
+        "id": "#1471",
+        "customerName": "kb test",
+        "dateOrder": "2024-12-05",
+        "activityType": "Re-Style Request",
+        "state": "draft",
+        "tags": [" Subscription", " Luxe Plan", "Subscription First Order"],
+        "products": [
+          {
+            "productName": "Elegant Handbag",
+            "size": "One Size",
+            "price": 150,
+            "photo": "https://picsum.photos/seed/Elegant%20Handbag0/150/120"
+          }
+        ]
+      },
+      {
+        "id": "#1472",
+        "customerName": "kb test",
+        "dateOrder": "2024-12-05",
+        "activityType": "Re-Style Request",
+        "state": "draft",
+        "tags": [" Subscription", " Luxe Plan", "Subscription Recurring Order"],
+        "products": [
+          {
+            "productName": "Silk Tie",
+            "size": "One Size",
+            "price": 35,
+            "photo": "https://picsum.photos/seed/Silk%20Tie0/150/120"
+          }
+        ]
+      },
+      {
+        "id": "#1473",
+        "customerName": "kb test",
+        "dateOrder": "2024-12-05",
+        "activityType": "Re-Style Request",
+        "state": "draft",
+        "tags": [" Subscription", " Regal Plan", "Subscription First Order"],
+        "products": [
+          {
+            "productName": "Luxury Perfume",
+            "size": "100ml",
+            "price": 180,
+            "photo": "https://picsum.photos/seed/Luxury%20Perfume0/150/120"
+          }
+        ]
+      }
+    ]
+  }
+  

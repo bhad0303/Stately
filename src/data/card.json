@@ -13,7 +13,7 @@
         "date_order": "2024-11-08T04:44:44",
         "state": "draft",
         "subs_plan": "",
-        "tags": [   
+        "tags": [
           " Subscription",
           " Luxe Plan",
           "swell_vip_base tier",
@@ -29,10 +29,22 @@
             "due_date": "2024-11-10",
             "state": "overdue"
           }
+        ],
+        "products": [
+          {
+            "name": "Men's Jacket",
+            "size": "L",
+            "price": 59.99,
+            "photo": "https://picsum.photos/id/1011/300/200"
+          },
+          {
+            "name": "Leather Boots",
+            "size": "42",
+            "price": 89.99,
+            "photo": "https://picsum.photos/id/1022/300/200"
+          }
         ]
       },
- 
-  
       {
         "id": 595839,
         "name": "SO92734",
@@ -41,7 +53,15 @@
         "state": "draft",
         "subs_plan": "Luxe Plan",
         "tags": ["Subscription", " Luxe Plan", "Subscription Recurring Order"],
-        "activities": []
+        "activities": [],
+        "products": [
+          {
+            "name": "Designer Sunglasses",
+            "size": "One Size",
+            "price": 120.50,
+            "photo": "https://picsum.photos/id/1035/300/200"
+          }
+        ]
       },
       {
         "id": 596053,
@@ -51,7 +71,15 @@
         "state": "draft",
         "subs_plan": "Luxe Plan",
         "tags": [],
-        "activities": []
+        "activities": [],
+        "products": [
+          {
+            "name": "Sports Sneakers",
+            "size": "44",
+            "price": 75.00,
+            "photo": "https://picsum.photos/id/1050/300/200"
+          }
+        ]
       },
       {
         "id": 596106,
@@ -61,7 +89,15 @@
         "state": "draft",
         "subs_plan": "Luxe Plan",
         "tags": [],
-        "activities": []
+        "activities": [],
+        "products": [
+          {
+            "name": "Luxury Watch",
+            "size": "One Size",
+            "price": 250.00,
+            "photo": "https://picsum.photos/id/1074/300/200"
+          }
+        ]
       },
       {
         "id": 596135,
@@ -86,9 +122,22 @@
             "due_date": "2024-11-27",
             "state": "overdue"
           }
+        ],
+        "products": [
+          {
+            "name": "Handmade Leather Wallet",
+            "size": "Standard",
+            "price": 45.00,
+            "photo": "https://picsum.photos/id/1080/300/200"
+          },
+          {
+            "name": "Cotton T-Shirt",
+            "size": "M",
+            "price": 25.99,
+            "photo": "https://picsum.photos/id/1084/300/200"
+          }
         ]
       },
-  
       {
         "id": 596224,
         "name": "#1471",
@@ -97,7 +146,15 @@
         "state": "draft",
         "subs_plan": "Frequency Luxe Plan",
         "tags": [" Subscription", " Luxe Plan", "Subscription First Order"],
-        "activities": []
+        "activities": [],
+        "products": [
+          {
+            "name": "Elegant Handbag",
+            "size": "One Size",
+            "price": 150.00,
+            "photo": "https://picsum.photos/id/109/300/200"
+          }
+        ]
       },
       {
         "id": 596225,
@@ -107,7 +164,15 @@
         "state": "draft",
         "subs_plan": "Frequency Luxe Plan",
         "tags": [" Subscription", " Luxe Plan", "Subscription Recurring Order"],
-        "activities": []
+        "activities": [],
+        "products": [
+          {
+            "name": "Silk Tie",
+            "size": "One Size",
+            "price": 35.00,
+            "photo": "https://picsum.photos/id/110/300/200"
+          }
+        ]
       },
       {
         "id": 596226,
@@ -117,10 +182,16 @@
         "state": "draft",
         "subs_plan": "Frequency Regal Plan",
         "tags": [" Subscription", " Regal Plan", "Subscription First Order"],
-        "activities": []
+        "activities": [],
+        "products": [
+          {
+            "name": "Luxury Perfume",
+            "size": "100ml",
+            "price": 180.00,
+            "photo": "https://picsum.photos/id/111/300/200"
+          }
+        ]
       }
-   
-     
     ],
     "page_name": "pending_orders",
     "pagination": {

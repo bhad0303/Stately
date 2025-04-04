@@ -17,6 +17,18 @@
       "fullname": "ishan ",
       "email": "ip@gmail.com",
       "password": "Ip020202"
+    },
+    {
+      "id": "e571",
+      "fullname": "jay",
+      "email": "jay@gmail.com",
+      "password": "Jay030303"
+    },
+    {
+      "id": "acf5",
+      "fullname": "Test11",
+      "email": "test11@gmail.com",
+      "password": "Prasad1234"
     }
   ]
 }
